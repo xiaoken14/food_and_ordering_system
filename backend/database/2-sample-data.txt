@@ -1,0 +1,44 @@
+-- Food Ordering System Sample Data
+-- STEP 2: Import this after 1-schema.sql
+-- Make sure you're connected to 'food_ordering' database!
+
+-- Insert sample users (password for all: "123456")
+INSERT IGNORE INTO users (email, name, password, role, phone, address, theme_preference) VALUES
+('admin@gmail.com', 'Admin User', '$2b$10$K4sbr.W0RKjmpN6B05uSAe.O0q9vkQDQKRqH52KE7qnrqduYJDAVS', 'admin', '555-0001', '123 Admin Street, City, State 12345', 'light'),
+('staff@gmail.com', 'Staff Member', '$2b$10$K4sbr.W0RKjmpN6B05uSAe.O0q9vkQDQKRqH52KE7qnrqduYJDAVS', 'staff', '555-0002', '456 Staff Avenue, City, State 12345', 'light'),
+('johndoe@gmail.com', 'John Doe', '$2b$10$K4sbr.W0RKjmpN6B05uSAe.O0q9vkQDQKRqH52KE7qnrqduYJDAVS', 'customer', '555-0003', '789 Customer Lane, City, State 12345', 'light'),
+('janesmith@gmail.com', 'Jane Smith', '$2b$10$K4sbr.W0RKjmpN6B05uSAe.O0q9vkQDQKRqH52KE7qnrqduYJDAVS', 'customer', '555-0004', '321 Buyer Boulevard, City, State 12345', 'light');
+
+-- Insert sample menu items
+INSERT IGNORE INTO menu_items (name, description, price, category, image, available) VALUES
+-- None category items
+('Chef\'s Surprise', 'A mystery dish prepared by our chef', 120.00, 'none', 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400', TRUE),
+('Seasonal Item', 'Limited time seasonal offering', 75.00, 'none', 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400', FALSE),
+-- Appetizers
+('Caesar Salad', 'Fresh romaine lettuce with parmesan cheese and croutons', 38.50, 'appetizer', 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400', TRUE),
+('Chicken Wings', 'Crispy wings with your choice of sauce', 55.00, 'appetizer', 'https://images.unsplash.com/photo-1608039755401-742074f0548d?w=400', TRUE),
+('Mozzarella Sticks', 'Golden fried mozzarella with marinara sauce', 34.00, 'appetizer', 'https://images.unsplash.com/photo-1531749668029-2db88e4276c7?w=400', TRUE),
+-- Main courses
+('Grilled Salmon', 'Fresh Atlantic salmon with vegetables and rice', 105.00, 'main', 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400', TRUE),
+('Beef Burger', 'Juicy beef patty with cheese, lettuce, and tomato', 68.00, 'main', 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400', TRUE),
+('Margherita Pizza', 'Classic pizza with tomato sauce, mozzarella, and basil', 80.00, 'main', 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400', TRUE),
+('Pasta Carbonara', 'Creamy pasta with bacon and parmesan', 72.00, 'main', 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400', TRUE),
+('Chicken Teriyaki', 'Grilled chicken with teriyaki glaze and steamed rice', 85.00, 'main', 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400', TRUE),
+-- Desserts
+('Chocolate Cake', 'Rich chocolate cake with chocolate frosting', 34.00, 'dessert', 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400', TRUE),
+('Tiramisu', 'Classic Italian dessert with coffee and mascarpone', 38.00, 'dessert', 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400', TRUE),
+('Cheesecake', 'New York style cheesecake with berry compote', 36.00, 'dessert', 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400', TRUE),
+-- Beverages
+('Fresh Orange Juice', 'Freshly squeezed orange juice', 21.00, 'beverage', 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400', TRUE),
+('Iced Coffee', 'Cold brew coffee with ice', 25.00, 'beverage', 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400', TRUE),
+('Lemonade', 'Homemade fresh lemonade', 17.00, 'beverage', 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400', TRUE),
+('Smoothie', 'Mixed berry smoothie', 30.00, 'beverage', 'https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400', TRUE);
+
+-- Display summary
+SELECT 'Sample data imported successfully!' as message;
+SELECT COUNT(*) as total_users FROM users;
+SELECT COUNT(*) as total_menu_items FROM menu_items;
+
+-- Show login accounts
+SELECT 'Login Accounts (password: 123456):' as info;
+SELECT email, role FROM users ORDER BY role, email;

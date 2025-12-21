@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "create-tables-dynamodb": "node scripts/createTables.js",
+    "seed-dynamodb": "node scripts/seedMenu.js",
+    "seed": "node scripts/seedMySQL.js",
+    "reset": "node scripts/resetMySQL.js",
+    "check": "node scripts/checkMySQL.js",
+    "create-admin": "node scripts/createAdminMySQL.js",
+    "create-admin-dynamodb": "node scripts/createAdmin.js",
+    "test-rds": "node test-rds-simple.js",
+    "test-endpoints": "node test-endpoints.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.15.3",
+    "uuid": "^9.0.0"
+  }
+}

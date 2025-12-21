@@ -1,0 +1,201 @@
+.App {
+  min-height: 100vh;
+  background-color: var(--color-white);
+  transition: background-color var(--transition-base);
+  padding-top: 64px;
+}
+
+/* Loading states */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.125rem;
+  color: var(--color-gray-500);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Primary button - Apple style */
+.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border: 1px solid var(--color-black);
+  border-radius: 980px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary .btn-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-200);
+  color: var(--color-gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Dark theme for primary button */
+[data-theme="dark"] .btn-primary {
+  background-color: var(--admin-surface);
+  color: var(--color-black);
+  border: 2px solid #333333;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] .btn-primary:disabled {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-gray-700);
+  color: var(--color-gray-400);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 14px 32px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 980px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-black);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Container with border */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-gray-300);
+  box-shadow: var(--shadow-md);
+}
+
+/* Error messages */
+.error {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 16px 20px;
+  border: 1px solid var(--color-gray-900);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+}
+
+/* Success messages */
+.success {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 16px 20px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+}
+
+/* Input fields */
+input, textarea, select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  transition: all var(--transition-fast);
+  letter-spacing: -0.01em;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-gray-400);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  color: var(--color-gray-600);
+  letter-spacing: -0.01em;
+}

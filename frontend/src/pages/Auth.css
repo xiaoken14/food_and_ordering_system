@@ -1,0 +1,716 @@
+/* Apple-inspired minimalist auth pages */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 48px);
+  padding: 24px;
+  background-color: var(--color-gray-50);
+  animation: fadeIn var(--transition-slow) ease-in;
+}
+
+.auth-form {
+  background-color: var(--color-white);
+  padding: 48px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-xl);
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--color-black);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.auth-form input,
+.auth-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  transition: all var(--transition-fast);
+  letter-spacing: -0.01em;
+}
+
+.auth-form input:focus,
+.auth-form textarea:focus {
+  outline: none;
+  border-color: var(--color-black);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form input::placeholder,
+.auth-form textarea::placeholder {
+  color: var(--color-gray-400);
+}
+
+.auth-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.auth-form button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 1.0625rem;
+}
+
+.auth-form p {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--color-gray-600);
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+}
+
+.auth-form a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity var(--transition-fast);
+}
+
+.auth-form a:hover {
+  opacity: 0.6;
+}
+
+.auth-form .error {
+  margin-bottom: 24px;
+}
+
+/* Password Input Wrapper */
+.auth-form .password-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.auth-form .password-input-wrapper input {
+  width: 100%;
+  padding-right: 50px !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box;
+}
+
+.auth-form .password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-500);
+  transition: all var(--transition-fast);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  margin: 0 !important;
+  z-index: 10;
+}
+
+.auth-form .password-toggle:hover {
+  color: var(--color-black);
+  background-color: var(--color-gray-100);
+}
+
+.auth-form .password-toggle:active {
+  transform: translateY(-50%) scale(0.95);
+  background-color: var(--color-gray-200);
+}
+
+.auth-form .password-toggle svg {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-form {
+    padding: 32px 24px;
+  }
+  
+  .auth-form h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Aquatic Decorative Shapes with Glassmorphism */
+.auth-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.aquatic-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth-form {
+  position: relative;
+  z-index: 10;
+}
+
+/* Bubble Shapes */
+.bubble-1 {
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.1);
+  top: 15%;
+  left: 10%;
+  animation: bubble-float-1 8s ease-in-out infinite;
+}
+
+.bubble-2 {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.15), 0 6px 24px rgba(0, 0, 0, 0.08);
+  top: 60%;
+  left: 8%;
+  animation: bubble-float-2 10s ease-in-out infinite;
+}
+
+.bubble-3 {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(0, 0, 0, 0.18);
+  border-radius: 50%;
+  background: radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.06));
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25), 0 10px 40px rgba(0, 0, 0, 0.12);
+  top: 25%;
+  right: 12%;
+  animation: bubble-float-3 12s ease-in-out infinite;
+}
+
+.bubble-4 {
+  width: 45px;
+  height: 45px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.12), 0 4px 20px rgba(0, 0, 0, 0.06);
+  bottom: 20%;
+  right: 15%;
+  animation: bubble-float-1 9s ease-in-out infinite reverse;
+}
+
+.bubble-5 {
+  width: 70px;
+  height: 70px;
+  border: 2px solid rgba(0, 0, 0, 0.14);
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(7px);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.18), 0 7px 28px rgba(0, 0, 0, 0.09);
+  bottom: 35%;
+  left: 15%;
+  animation: bubble-float-2 11s ease-in-out infinite reverse;
+}
+
+/* Fish Shapes */
+.fish-1 {
+  width: 100px;
+  height: 60px;
+  color: rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  top: 40%;
+  right: 8%;
+  animation: fish-swim-1 20s ease-in-out infinite;
+}
+
+.fish-1 svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  backdrop-filter: blur(4px);
+}
+
+.fish-2 {
+  width: 80px;
+  height: 50px;
+  color: rgba(0, 0, 0, 0.35);
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.12));
+  top: 70%;
+  right: 20%;
+  animation: fish-swim-2 25s ease-in-out infinite;
+}
+
+.fish-2 svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  backdrop-filter: blur(3px);
+}
+
+.fish-3 {
+  width: 90px;
+  height: 55px;
+  color: rgba(0, 0, 0, 0.38);
+  filter: drop-shadow(0 4px 11px rgba(0, 0, 0, 0.13));
+  bottom: 15%;
+  left: 12%;
+  animation: fish-swim-3 22s ease-in-out infinite;
+}
+
+.fish-3 svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.58;
+  backdrop-filter: blur(3px);
+}
+
+/* Wave Shapes */
+.wave-1 {
+  width: 200px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.08) 100%);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  bottom: 0;
+  left: -50px;
+  transform: rotate(-15deg);
+  animation: wave-sway-1 15s ease-in-out infinite;
+}
+
+.wave-2 {
+  width: 180px;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.12) 100%);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  bottom: 0;
+  right: -40px;
+  transform: rotate(12deg);
+  animation: wave-sway-2 18s ease-in-out infinite;
+}
+
+/* Seaweed Shapes */
+.seaweed-1 {
+  width: 30px;
+  height: 150px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.05) 100%);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50% 50% 0 0;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  bottom: 0;
+  left: 20%;
+  transform-origin: bottom center;
+  animation: seaweed-sway-1 8s ease-in-out infinite;
+}
+
+.seaweed-2 {
+  width: 25px;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.04) 100%);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50% 50% 0 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+  bottom: 0;
+  right: 25%;
+  transform-origin: bottom center;
+  animation: seaweed-sway-2 10s ease-in-out infinite;
+}
+
+/* Bubble Float Animations */
+@keyframes bubble-float-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(15px, -20px) scale(1.05);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-10px, -35px) scale(0.95);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate(-20px, -15px) scale(1.02);
+    opacity: 0.88;
+  }
+}
+
+@keyframes bubble-float-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(-18px, -25px) scale(1.08);
+    opacity: 0.85;
+  }
+  66% {
+    transform: translate(12px, -30px) scale(0.92);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bubble-float-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translate(20px, -30px) scale(1.1);
+    opacity: 0.82;
+  }
+  80% {
+    transform: translate(-15px, -25px) scale(0.9);
+    opacity: 0.78;
+  }
+}
+
+/* Fish Swimming Animations */
+@keyframes fish-swim-1 {
+  0%, 100% {
+    transform: translate(0, 0) scaleX(1);
+  }
+  25% {
+    transform: translate(-30px, -15px) scaleX(1);
+  }
+  50% {
+    transform: translate(-50px, 10px) scaleX(-1);
+  }
+  75% {
+    transform: translate(-20px, 20px) scaleX(-1);
+  }
+}
+
+@keyframes fish-swim-2 {
+  0%, 100% {
+    transform: translate(0, 0) scaleX(1);
+  }
+  30% {
+    transform: translate(40px, -20px) scaleX(-1);
+  }
+  60% {
+    transform: translate(60px, 15px) scaleX(-1);
+  }
+  90% {
+    transform: translate(20px, -10px) scaleX(1);
+  }
+}
+
+@keyframes fish-swim-3 {
+  0%, 100% {
+    transform: translate(0, 0) scaleX(-1);
+  }
+  35% {
+    transform: translate(-35px, 18px) scaleX(-1);
+  }
+  70% {
+    transform: translate(-55px, -12px) scaleX(1);
+  }
+}
+
+/* Wave Sway Animations */
+@keyframes wave-sway-1 {
+  0%, 100% {
+    transform: rotate(-15deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-12deg) translateY(-10px);
+  }
+}
+
+@keyframes wave-sway-2 {
+  0%, 100% {
+    transform: rotate(12deg) translateY(0);
+  }
+  50% {
+    transform: rotate(15deg) translateY(-8px);
+  }
+}
+
+/* Seaweed Sway Animations */
+@keyframes seaweed-sway-1 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes seaweed-sway-2 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Responsive - Hide aquatic shapes on mobile */
+@media (max-width: 768px) {
+  .aquatic-shape {
+    display: none;
+  }
+}
+
+/* Food-Themed Decorative Shapes with Glassmorphism */
+.food-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Pizza Slice */
+.pizza-slice {
+  width: 100px;
+  height: 100px;
+  color: rgba(255, 193, 7, 0.5);
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+  top: 12%;
+  left: 8%;
+  animation: food-float-1 10s ease-in-out infinite;
+}
+
+.pizza-slice svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+/* Burger */
+.burger {
+  width: 100px;
+  height: 60px;
+  color: rgba(139, 69, 19, 0.45);
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.1));
+  top: 18%;
+  right: 10%;
+  animation: food-float-2 12s ease-in-out infinite;
+}
+
+.burger svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+}
+
+/* Coffee Cup */
+.coffee-cup {
+  width: 80px;
+  height: 90px;
+  color: rgba(101, 67, 33, 0.5);
+  filter: drop-shadow(0 7px 22px rgba(0, 0, 0, 0.11));
+  top: 55%;
+  left: 6%;
+  animation: food-float-3 14s ease-in-out infinite;
+}
+
+.coffee-cup svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.68;
+}
+
+/* Ice Cream */
+.ice-cream {
+  width: 70px;
+  height: 100px;
+  color: rgba(255, 182, 193, 0.55);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.09));
+  bottom: 18%;
+  right: 12%;
+  animation: food-float-1 11s ease-in-out infinite reverse;
+}
+
+.ice-cream svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+/* Donut */
+.donut {
+  width: 100px;
+  height: 100px;
+  color: rgba(255, 160, 122, 0.5);
+  filter: drop-shadow(0 8px 26px rgba(0, 0, 0, 0.12));
+  top: 45%;
+  right: 8%;
+  animation: food-rotate-float 18s ease-in-out infinite;
+}
+
+.donut svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.72;
+}
+
+/* Soda Cup */
+.soda-cup {
+  width: 70px;
+  height: 100px;
+  color: rgba(220, 20, 60, 0.48);
+  filter: drop-shadow(0 7px 21px rgba(0, 0, 0, 0.1));
+  bottom: 25%;
+  left: 10%;
+  animation: food-float-2 13s ease-in-out infinite reverse;
+}
+
+.soda-cup svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.66;
+}
+
+/* Taco */
+.taco {
+  width: 100px;
+  height: 80px;
+  color: rgba(210, 180, 140, 0.52);
+  filter: drop-shadow(0 6px 19px rgba(0, 0, 0, 0.1));
+  top: 70%;
+  right: 18%;
+  animation: food-float-3 15s ease-in-out infinite reverse;
+}
+
+.taco svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.69;
+}
+
+/* Cupcake */
+.cupcake {
+  width: 80px;
+  height: 90px;
+  color: rgba(255, 105, 180, 0.5);
+  filter: drop-shadow(0 7px 20px rgba(0, 0, 0, 0.11));
+  bottom: 12%;
+  left: 18%;
+  animation: food-float-1 12s ease-in-out infinite;
+}
+
+.cupcake svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+/* Food Float Animations */
+@keyframes food-float-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(12px, -18px) rotate(3deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-8px, -28px) rotate(-2deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-15px, -12px) rotate(2deg);
+    opacity: 0.82;
+  }
+}
+
+@keyframes food-float-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.65;
+  }
+  30% {
+    transform: translate(-15px, -22px) rotate(-4deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(10px, -30px) rotate(3deg);
+    opacity: 0.75;
+  }
+  90% {
+    transform: translate(8px, -15px) rotate(-2deg);
+    opacity: 0.78;
+  }
+}
+
+@keyframes food-float-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.68;
+  }
+  35% {
+    transform: translate(18px, -25px) rotate(5deg) scale(1.05);
+    opacity: 0.82;
+  }
+  70% {
+    transform: translate(-12px, -32px) rotate(-3deg) scale(0.98);
+    opacity: 0.77;
+  }
+}
+
+@keyframes food-rotate-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.72;
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(90deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-10px, -35px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-18px, -18px) rotate(270deg);
+    opacity: 0.83;
+  }
+}
+
+/* Responsive - Hide food shapes on mobile */
+@media (max-width: 768px) {
+  .food-shape {
+    display: none;
+  }
+}

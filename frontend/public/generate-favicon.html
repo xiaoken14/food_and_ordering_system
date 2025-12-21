@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate FoodOrder Favicon</title>
+</head>
+<body>
+    <h2>FoodOrder Favicon Generator</h2>
+    <p>Right-click the icon below and "Save image as..." to replace favicon.ico, logo192.png, and logo512.png</p>
+    
+    <h3>16x16 / 32x32 (favicon.ico)</h3>
+    <canvas id="favicon" width="32" height="32" style="border: 1px solid #ccc; image-rendering: pixelated; width: 128px; height: 128px;"></canvas>
+    
+    <h3>192x192 (logo192.png)</h3>
+    <canvas id="logo192" width="192" height="192" style="border: 1px solid #ccc; width: 192px; height: 192px;"></canvas>
+    
+    <h3>512x512 (logo512.png)</h3>
+    <canvas id="logo512" width="512" height="512" style="border: 1px solid #ccc; width: 256px; height: 256px;"></canvas>
+    
+    <script>
+        function drawIcon(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = canvas.width;
+            
+            // Black circle background
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // White burger icon
+            ctx.fillStyle = '#ffffff';
+            
+            // Top bun
+            ctx.beginPath();
+            ctx.moveTo(size * 0.3, size * 0.4);
+            ctx.quadraticCurveTo(size * 0.5, size * 0.25, size * 0.7, size * 0.4);
+            ctx.lineTo(size * 0.7, size * 0.45);
+            ctx.lineTo(size * 0.3, size * 0.45);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Patty
+            ctx.fillRect(size * 0.3, size * 0.45, size * 0.4, size * 0.08);
+            
+            // Bottom bun
+            ctx.beginPath();
+            ctx.moveTo(size * 0.3, size * 0.53);
+            ctx.lineTo(size * 0.7, size * 0.53);
+            ctx.quadraticCurveTo(size * 0.75, size * 0.65, size * 0.7, size * 0.75);
+            ctx.lineTo(size * 0.3, size * 0.75);
+            ctx.quadraticCurveTo(size * 0.25, size * 0.65, size * 0.3, size * 0.53);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Sesame seeds
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(size * 0.4, size * 0.35, size * 0.02, 0, Math.PI * 2);
+            ctx.arc(size * 0.5, size * 0.32, size * 0.02, 0, Math.PI * 2);
+            ctx.arc(size * 0.6, size * 0.35, size * 0.02, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        drawIcon(document.getElementById('favicon'));
+        drawIcon(document.getElementById('logo192'));
+        drawIcon(document.getElementById('logo512'));
+        
+        // Auto-download
+        setTimeout(() => {
+            ['favicon', 'logo192', 'logo512'].forEach(id => {
+                const canvas = document.getElementById(id);
+                const link = document.createElement('a');
+                const filename = id === 'favicon' ? 'favicon.png' : id + '.png';
+                link.download = filename;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

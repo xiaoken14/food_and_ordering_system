@@ -1,0 +1,394 @@
+/* Apple-inspired minimalist navbar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  transition: all var(--transition-base);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  width: 100%;
+}
+
+[data-theme="dark"] .navbar {
+  background-color: rgba(10, 10, 10, 0.8);
+  border-bottom-color: var(--color-gray-200);
+}
+
+[data-theme="auto"] .navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .navbar {
+    background-color: rgba(10, 10, 10, 0.8);
+    border-bottom-color: var(--color-gray-200);
+  }
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(180%) blur(30px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-bottom-color: var(--color-gray-300);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .navbar.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+  }
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-logo {
+  color: var(--color-black);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+  opacity: 0.7;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: opacity var(--transition-fast);
+  position: relative;
+}
+
+.nav-menu a:hover {
+  opacity: 0.6;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-black);
+  transition: width var(--transition-fast);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.nav-menu a.active::after {
+  width: 100%;
+  background-color: var(--color-black);
+}
+
+/* User Profile Link with Avatar */
+.user-profile-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 6px;
+  background-color: var(--color-gray-100);
+  border-radius: 980px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.user-profile-link:hover {
+  background-color: var(--color-gray-200);
+  opacity: 1;
+  border-color: var(--color-gray-300);
+}
+
+.user-profile-link:hover::after {
+  width: 0;
+}
+
+.user-profile-link.active {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.user-profile-link.active .user-name {
+  color: var(--color-white);
+}
+
+.user-profile-link.active .nav-avatar {
+  border-color: var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-white);
+}
+
+[data-theme="dark"] .user-profile-link {
+  background-color: #2a2a2a;
+  border-color: #404040;
+}
+
+[data-theme="dark"] .user-profile-link:hover {
+  background-color: #333333;
+  border-color: #525252;
+}
+
+[data-theme="dark"] .user-profile-link.active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .user-profile-link.active .user-name {
+  color: #000000;
+}
+
+[data-theme="dark"] .user-profile-link.active .nav-avatar {
+  border-color: #000000;
+  box-shadow: 0 0 0 1px #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .user-profile-link.active {
+    background-color: var(--color-white);
+  }
+  
+  [data-theme="auto"] .user-profile-link.active .user-name {
+    color: var(--color-black);
+  }
+  
+  [data-theme="auto"] .user-profile-link.active .nav-avatar {
+    border-color: var(--color-black);
+  }
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-gray-700) 100%);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid var(--color-gray-300);
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.nav-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Enhanced profile border for better visibility */
+.user-profile-link:hover .nav-avatar {
+  border-color: var(--color-black);
+  box-shadow: 0 0 0 1px var(--color-black);
+}
+
+[data-theme="dark"] .nav-avatar {
+  border-color: #525252;
+  background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+  color: #000000;
+}
+
+[data-theme="dark"] .user-profile-link:hover .nav-avatar {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+.user-name {
+  color: var(--color-black);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .user-name {
+  color: #ffffff;
+}
+
+.btn-logout {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 8px 20px;
+  border: 1px solid var(--color-black);
+  border-radius: 980px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+}
+
+.btn-logout:hover {
+  background-color: var(--color-gray-800);
+  border-color: var(--color-gray-800);
+  transform: translateY(-1px);
+}
+
+.btn-logout:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 16px;
+    font-size: 0.8125rem;
+  }
+  
+  .nav-container {
+    padding: 0 16px;
+  }
+}
+/* Enhanced Dark Mode Navbar Styling */
+[data-theme="dark"] .nav-menu a {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .nav-menu a:hover {
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .nav-menu a::after {
+  background-color: #ffffff;
+}
+
+[data-theme="dark"] .nav-menu a.active::after {
+  background-color: #ffffff;
+}
+
+[data-theme="dark"] .nav-logo {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .btn-logout {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #404040;
+}
+
+[data-theme="dark"] .btn-logout:hover {
+  background-color: #333333;
+  border-color: #525252;
+}
+
+/* Enhanced profile section for better visibility */
+[data-theme="dark"] .user-profile-link {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .user-profile-link:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .user-profile-link.active {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Auto theme support */
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] .nav-menu a {
+    color: #ffffff;
+  }
+  
+  [data-theme="auto"] .nav-menu a:hover {
+    opacity: 0.8;
+  }
+  
+  [data-theme="auto"] .nav-menu a::after {
+    background-color: #ffffff;
+  }
+  
+  [data-theme="auto"] .nav-menu a.active::after {
+    background-color: #ffffff;
+  }
+  
+  [data-theme="auto"] .nav-logo {
+    color: #ffffff;
+  }
+  
+  [data-theme="auto"] .user-name {
+    color: #ffffff;
+  }
+  
+  [data-theme="auto"] .user-profile-link {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  [data-theme="auto"] .user-profile-link:hover {
+    background-color: #333333;
+    border-color: #525252;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+  
+  [data-theme="auto"] .nav-avatar {
+    border-color: #525252;
+    background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+    color: #000000;
+  }
+  
+  [data-theme="auto"] .user-profile-link:hover .nav-avatar {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 1px #ffffff;
+  }
+  
+  [data-theme="auto"] .btn-logout {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #404040;
+  }
+  
+  [data-theme="auto"] .btn-logout:hover {
+    background-color: #333333;
+    border-color: #525252;
+  }
+}
