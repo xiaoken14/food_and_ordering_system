@@ -24,14 +24,10 @@ A minimalist, Apple-inspired food ordering system with role-based access control
 
 #!/bin/bash
 set -e
-
-# 1. Backend
 echo "Starting backend..."
 cd backend || exit
 npm install
 pm2 start index.js --name backend --update-env
-
-# 2. Frontend
 echo "Building frontend..."
 cd ../frontend || exit
 npm install
@@ -39,8 +35,6 @@ npm run build
 
 echo "Starting frontend on port 8080..."
 pm2 start npx --name frontend -- serve -s build -l 8080
-
-# 3. Save PM2
 pm2 save
 
 echo "All services started successfully!"
