@@ -39,14 +39,6 @@ pm2 save
 
 echo "All services started successfully!"
 
-
-## Manual Setup
-
-For detailed instructions:
-
-- **Local Development** → [XAMPP_SETUP.md](./XAMPP_SETUP.md)
-- **Cloud Deployment** → [AWS_SETUP.md](./AWS_SETUP.md)
-
 ## Default Login
 
 After database seeding:
@@ -83,10 +75,7 @@ food_and_ordering_system/
 │   ├── package.json
 │   └── .env                 # Backend environment variables
 │
-├── startup.bat              # Windows startup script
 ├── README.md                # This file
-├── XAMPP_SETUP.md          # Local development guide
-└── AWS_SETUP.md            # Cloud deployment guide
 ```
 
 ## API Endpoints
