@@ -33,13 +33,14 @@ CREATE TABLE menu_items (
     description TEXT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     category VARCHAR(100) NOT NULL DEFAULT 'none',
-    image LONGTEXT DEFAULT 'https://via.placeholder.com/300x200',
+    image VARCHAR(500) NOT NULL DEFAULT 'https://via.placeholder.com/300x200',
     available BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_category (category),
     INDEX idx_available (available)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 -- Orders table
 CREATE TABLE orders (
