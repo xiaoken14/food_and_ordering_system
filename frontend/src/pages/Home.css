@@ -113,83 +113,6 @@
   min-width: 180px;
 }
 
-.features {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-3xl) var(--space-2xl);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--space-2xl);
-  position: relative;
-}
-
-.feature {
-  text-align: center;
-  padding: var(--space-3xl) var(--space-xl);
-  background: var(--bg-primary);
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-2xl);
-  transition: all var(--transition-slow);
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: var(--backdrop-blur);
-}
-
-.feature::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
-.feature:hover::before {
-  transform: scaleX(1);
-}
-
-.feature:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-2xl);
-  border-color: var(--color-primary);
-}
-
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--space-xl);
-  display: block;
-  color: var(--color-primary);
-  transition: all var(--transition-bounce);
-  padding: var(--space-lg);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  border-radius: var(--radius-xl);
-  stroke: white;
-}
-
-.feature:hover .feature-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: var(--shadow-xl);
-}
-
-.feature h3 {
-  font-size: 1.875rem;
-  margin-bottom: var(--space-lg);
-  color: var(--text-primary);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.feature p {
-  color: var(--text-secondary);
-  font-size: 1.125rem;
-  line-height: 1.7;
-  letter-spacing: -0.01em;
-}
-
 .cta-section {
   background: var(--gradient-dark);
   color: var(--color-white);
@@ -286,16 +209,6 @@
   .hero-actions .btn-secondary {
     width: 100%;
     max-width: 300px;
-  }
-  
-  .features {
-    grid-template-columns: 1fr;
-    padding: var(--space-2xl) var(--space-lg);
-    gap: var(--space-xl);
-  }
-  
-  .feature {
-    padding: var(--space-xl) var(--space-lg);
   }
 
   .cta-section {
