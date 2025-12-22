@@ -23,7 +23,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
 
       <div className="cta-section">
         {/* Decorative shapes for CTA section */}
