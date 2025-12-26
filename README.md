@@ -25,18 +25,16 @@ A minimalist, Apple-inspired food ordering system with role-based access control
 #!/bin/bash
 set -e
 echo "Starting backend..."
-cd backend || exit
+cd ~/food_and_ordering_system/backend || exit
 npm install
 pm2 start index.js --name backend --update-env
 echo "Building frontend..."
-cd ../frontend || exit
+cd ~/food_and_ordering_system/frontend || exit
 npm install
 npm run build
-
 echo "Starting frontend on port 8080..."
 pm2 start npx --name frontend -- serve -s build -l 8080
 pm2 save
-
 echo "All services started successfully!"
 
 ## Default Login
