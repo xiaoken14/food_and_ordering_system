@@ -1,14 +1,3 @@
--- Food Ordering System Database Schema
-USE food_ordering;
-
--- Drop existing tables if they exist (for clean setup)
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS order_items;
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS menu_items;
-DROP TABLE IF EXISTS users;
-SET FOREIGN_KEY_CHECKS = 1;
-
 -- Users table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -76,7 +65,3 @@ CREATE TABLE order_items (
     INDEX idx_order_id (order_id),
     INDEX idx_menu_item_id (menu_item_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Display success message
-SELECT 'Schema created successfully! Now import 2-sample-data.sql' as message;
-SHOW TABLES;
